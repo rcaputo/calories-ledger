@@ -121,17 +121,8 @@ The ledger consists of three kinds of entry:
       Espenses:Housecleaning   30 min_vacuuming
       Espenses:Housecleaning   60 min_housecleaning_light
 
-Exercise transactions are optional.  Exercise can be added to the basal metabolism transaction.
-
-    2016-10-27 Sedentary Metabolism
-      Assets:Fat
-      Espenses:Basal:Weight   186.000 lb_basal_weight
-      Espenses:Housecleaning   30     min_vacuuming
-      Espenses:Housecleaning   60     min_housecleaning_light
-
 4. Meal transactions.  The food.prices database converts food measurements into calories, and the "Assets:Fat" offset is calculated to match.
 
-```
     2016-10-27 Breakfast
       Assets:Fat
       Income:Breakfast  -30 g_raisin_bran
@@ -166,7 +157,6 @@ Exercise transactions are optional.  Exercise can be added to the basal metaboli
     2016-10-27 Dessert
       Assets:Fat
       Income:Dessert    -31 g_graham_crackers_honey
-```
 
 Daily Report
 ------------
