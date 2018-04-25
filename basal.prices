@@ -1,0 +1,69 @@
+# vim: filetype=ledger
+
+# Basal calorie load varies over time.
+
+define birth_date = [1990-01-01]
+define birth_time = to_int(format_date(birth_date,"%s"))
+
+# Imperial/metric conversions.
+
+C 1 lb_basal_weight = 0.455 kg_basal_weight
+C 1 in_basal_height = 2.540 cm_basal_height
+
+# Factors for the basal calorie calculation.
+
+P 2000-01-01 00:00:00 kg_basal_weight     10.000 cal
+P 2000-01-01 00:00:00 cm_basal_height      6.250 cal
+P 2000-01-01 00:00:00 male_body            5.000 cal
+P 2000-01-01 00:00:00 female_body       -161.000 cal
+
+; TODO - Budget for a diet?
+
+; TODO - Heartrate?
+; Max heart rate = 220 - age
+; Resting heart rate = measured
+; Heart rate reserve = max - resting
+;
+; heart rate targets by purpose:
+; Healthy heart/fitness is 50-60% of max
+; weight management is 60-70% of max
+; aerobic base building = 70-80% of max
+; optimal conditioning = 80-90% of max
+; elite athlete = 90-100% of max
+
+=expr( payee =~ /Metabolism/ && account =~ /Assets/ )
+    Espenses:Basal:Base        1.000 male_body
+    Assets:Fat                -1.000 male_body
+    Espenses:Basal:Height    185.420 cm_basal_height
+    Assets:Fat              -185.420 cm_basal_height
+    Espenses:Basal:Age      (-5.000 cal * (to_int(format_date(d,"%s")) - birth_time) / 86400.00 / 365.25)
+    Assets:Fat               (5.000 cal * (to_int(format_date(d,"%s")) - birth_time) / 86400.00 / 365.25)
+
+=expr( payee =~ /Sedentary/ && account =~ /Assets/ )
+    Espenses:Basal:Weight       0.2
+    Assets:Fat                 -0.2
+    Espenses:Sedentary:Base    (0.2 *    1.000 male_body)
+    Assets:Fat                 (0.2 *   -1.000 male_body)
+    Espenses:Sedentary:Height  (0.2 *  185.420 cm_basal_height)
+    Assets:Fat                 (0.2 * -185.420 cm_basal_height)
+    Espenses:Sedentary:Age     (0.2 *   -5.000 cal * (to_int(format_date(d,"%s")) - birth_time) / 86400.00 / 365.25)
+    Assets:Fat                 (0.2 *    5.000 cal * (to_int(format_date(d,"%s")) - birth_time) / 86400.00 / 365.25)
+
+;=expr( payee =~ /Lightly Active/ && account =~ /Assets/ )
+;  Espenses:Basal:Sedentary   (a * -0.375)
+;  Assets:Fat       (a *  0.375)
+;
+;; 3-5 days/week of moderate activity.
+;=expr( payee =~ /Moderately Active/ && account =~ /Assets/ )
+;  Espenses:Basal:Sedentary   (a * -0.550)
+;  Assets:Fat       (a *  0.550)
+;
+;; 6-7 days/week of activity.
+;=expr( payee =~ /Very Active/ && account =~ /Assets/ )
+;  Espenses:Basal:Sedentary   (a * -0.725)
+;  Assets:Fat       (a *  0.725)
+;
+;; 6-7 days/week of heavy activity.
+;=expr( payee =~ /Extremely Active/ && account =~ /Assets/ )
+;  Espenses:Basal:Sedentary   (a * -0.900)
+;  Assets:Fat       (a *  0.900)

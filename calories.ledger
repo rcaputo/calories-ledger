@@ -1,0 +1,43 @@
+# vim: filetype=ledger
+
+include basal.prices
+include food.prices
+include exercise.prices
+
+2016-10-27 Sedentary Metabolism
+  Assets:Fat
+  Espenses:Basal:Weight  190.000 lb_basal_weight
+2016-10-27 Breakfast
+  Assets:Fat
+  Income:Breakfast  -30 g_raisin_bran
+  Income:Breakfast  -20 g_walnuts
+2016-10-27 Breakfast Coffee
+  Assets:Fat
+  Income:Coffee  -6 g_sugar_turbinado
+  Income:Coffee  -2 g_cocoa
+  Income:Coffee  -328 g_coffee
+  Income:Coffee  -108 g_milk_twopct
+2016-10-27 Lunch
+  Assets:Fat
+  Income:Lunch  -10 g_butter
+  Income:Lunch  -1 bagel_thomas_cinnamon_raisin
+  Income:Lunch  -14 g_oats_dry
+  Income:Lunch  -20 g_nuts_mixed_planters
+  Income:Lunch  -1 g_honey
+2016-10-27 Lunch Coffee
+  Assets:Fat
+  Income:Coffee  -6 g_sugar_turbinado
+  Income:Coffee  -2 g_cocoa
+  Income:Coffee  -304 g_coffee
+  Income:Coffee  -114 g_milk_twopct
+2016-10-27 Dinner
+  Assets:Fat
+  Income:Dinner  -83 g_beef_bottom_round_roasted
+  Income:Dinner  -76 g_beans_green
+  Income:Dinner  -50 g_carrots_raw
+  Income:Dinner  -77 g_onions_sauteed
+  Income:Dinner  -145 g_potatoes_steamed
+  Income:Dinner  -21 g_lingonberries
+2016-10-27 Dessert
+  Assets:Fat
+  Income:Dessert  -31 g_graham_crackers_honey

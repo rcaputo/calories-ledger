@@ -1,0 +1,20 @@
+# vim: filetype=ledger
+
+# "Prices" for various kinds of exertion were found on the web.
+
+# One source of values was:
+# http://calorielab.com/burned/?mo=se&gr=05&ti=home+activities&q=&wt=185&un=lb
+
+# Prices begin with a unit measurement, such as "mile" or "min" for
+# minute.
+
+P 2000-01-01 00:00:00 mile_walking_brisk           100.000 cal
+P 2000-01-01 00:00:00 mile_walking_casual          100.000 cal
+P 2000-01-01 00:00:00 min_housecleaning_heavy        4.200 cal
+P 2000-01-01 00:00:00 min_housecleaning_light        2.100 cal
+P 2000-01-01 00:00:00 min_housecleaning_light        2.100 cal
+P 2000-01-01 00:00:00 min_housecleaning_moderate     3.500 cal
+P 2000-01-01 00:00:00 min_vacuuming                  3.500 cal
+P 2000-01-01 00:00:00 min_washing_car                2.800 cal
+P 2000-01-01 00:00:00 min_washing_windows            2.800 cal
+P 2000-01-01 00:00:00 solo_lap_neighborhood         85.000 cal
