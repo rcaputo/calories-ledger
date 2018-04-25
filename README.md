@@ -116,14 +116,14 @@ The ledger consists of three kinds of entry:
 
 3. Exercise transactions.  These track events that burn extra calories.  The "exercise.prices" database converts units of exercise into calories burned, and the "Assets:Fat" offset is calculated to match.
 
-    2016-10-30 Sedentary Metabolism
+    2016-10-27 Housecleaning
       Assets:Fat
       Espenses:Housecleaning   30 min_vacuuming
       Espenses:Housecleaning   60 min_housecleaning_light
 
 Exercise transactions are optional.  Exercise can be added to the basal metabolism transaction.
 
-    2016-10-30 Sedentary Metabolism
+    2016-10-27 Sedentary Metabolism
       Assets:Fat
       Espenses:Basal:Weight   186.000 lb_basal_weight
       Espenses:Housecleaning   30     min_vacuuming
