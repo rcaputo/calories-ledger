@@ -123,6 +123,7 @@ The ledger consists of three kinds of entry:
 
 4. Meal transactions.  The food.prices database converts food measurements into calories, and the "Assets:Fat" offset is calculated to match.
 
+```
     2016-10-27 Breakfast
       Assets:Fat
       Income:Breakfast  -30 g_raisin_bran
@@ -157,6 +158,7 @@ The ledger consists of three kinds of entry:
     2016-10-27 Dessert
       Assets:Fat
       Income:Dessert    -31 g_graham_crackers_honey
+```
 
 Daily Report
 ------------
