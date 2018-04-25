@@ -29,8 +29,8 @@ Benefits of Using a Ledger
 
 This ledger tracks foods and exercises per unit.  Some examples:
 
-   P 2000-01-01 12:00:00 g_beans_black   1.320 cal
-   P 2000-01-01 12:00:00 floz_wine_red  25.000 cal
+    P 2000-01-01 12:00:00 g_beans_black   1.320 cal
+    P 2000-01-01 12:00:00 floz_wine_red  25.000 cal
 
 Black beans are 1.320 calories per gram.  Red wine is 25 calories per
 fluid ounce.
@@ -104,67 +104,67 @@ The ledger consists of three kinds of entry:
 
 1. Includes.  These pull in the various databases.
 
-   include basal.prices
-   include food.prices
-   include exercise.prices
+    include basal.prices
+    include food.prices
+    include exercise.prices
 
 1. Basal metabolism transactions.  These account for being alive.  They contain two postings: One line to calculate your basal burn from your weight, and another line to offset that burn from "Assets:Fat".
 
-   2016-10-27 Sedentary Metabolism
-     Assets:Fat
-     Espenses:Basal:Weight  190.000 lb_basal_weight
+    2016-10-27 Sedentary Metabolism
+      Assets:Fat
+      Espenses:Basal:Weight  190.000 lb_basal_weight
 
-1. Exercise transactions.  These track events that burn extra calories.  The "exercise.prices" database converts units of exercise into calories burned, and the "Assets:Fat" offset is calculated to match.
+2. Exercise transactions.  These track events that burn extra calories.  The "exercise.prices" database converts units of exercise into calories burned, and the "Assets:Fat" offset is calculated to match.
 
-   2016-10-30 Sedentary Metabolism
-     Assets:Fat
-     Espenses:Housecleaning   30 min_vacuuming
-     Espenses:Housecleaning   60 min_housecleaning_light
+    2016-10-30 Sedentary Metabolism
+      Assets:Fat
+      Espenses:Housecleaning   30 min_vacuuming
+      Espenses:Housecleaning   60 min_housecleaning_light
 
 Exercise transactions are optional.  Exercise can be added to the basal metabolism transaction.
 
-   2016-10-30 Sedentary Metabolism
-     Assets:Fat
-     Espenses:Basal:Weight   186.000 lb_basal_weight
-     Espenses:Housecleaning   30     min_vacuuming
-     Espenses:Housecleaning   60     min_housecleaning_light
+    2016-10-30 Sedentary Metabolism
+      Assets:Fat
+      Espenses:Basal:Weight   186.000 lb_basal_weight
+      Espenses:Housecleaning   30     min_vacuuming
+      Espenses:Housecleaning   60     min_housecleaning_light
 
-1. Meal transactions.  The food.prices database converts food measurements into calories, and the "Assets:Fat" offset is calculated to match.
+3. Meal transactions.  The food.prices database converts food measurements into calories, and the "Assets:Fat" offset is calculated to match.
 
-   2016-10-27 Breakfast
-     Assets:Fat
-     Income:Breakfast  -30 g_raisin_bran
-     Income:Breakfast  -20 g_walnuts
-   2016-10-27 Breakfast Coffee
-     Assets:Fat
-     Income:Coffee      -6 g_sugar_turbinado
-     Income:Coffee      -2 g_cocoa
-     Income:Coffee    -328 g_coffee
-     Income:Coffee    -108 g_milk_twopct
-   2016-10-27 Lunch
-     Assets:Fat
-     Income:Lunch      -10 g_butter
-     Income:Lunch       -1 bagel_thomas_cinnamon_raisin
-     Income:Lunch      -14 g_oats_dry
-     Income:Lunch      -20 g_nuts_mixed_planters
-     Income:Lunch       -1 g_honey
-   2016-10-27 Lunch Coffee
-     Assets:Fat
-     Income:Coffee      -6 g_sugar_turbinado
-     Income:Coffee      -2 g_cocoa
-     Income:Coffee    -304 g_coffee
-     Income:Coffee    -114 g_milk_twopct
-   2016-10-27 Dinner
-     Assets:Fat
-     Income:Dinner     -83 g_beef_bottom_round_roasted
-     Income:Dinner     -76 g_beans_green
-     Income:Dinner     -50 g_carrots_raw
-     Income:Dinner     -77 g_onions_sauteed
-     Income:Dinner    -145 g_potatoes_steamed
-     Income:Dinner     -21 g_lingonberries
-   2016-10-27 Dessert
-     Assets:Fat
-     Income:Dessert    -31 g_graham_crackers_honey
+    2016-10-27 Breakfast
+      Assets:Fat
+      Income:Breakfast  -30 g_raisin_bran
+      Income:Breakfast  -20 g_walnuts
+    2016-10-27 Breakfast Coffee
+      Assets:Fat
+      Income:Coffee      -6 g_sugar_turbinado
+      Income:Coffee      -2 g_cocoa
+      Income:Coffee    -328 g_coffee
+      Income:Coffee    -108 g_milk_twopct
+    2016-10-27 Lunch
+      Assets:Fat
+      Income:Lunch      -10 g_butter
+      Income:Lunch       -1 bagel_thomas_cinnamon_raisin
+      Income:Lunch      -14 g_oats_dry
+      Income:Lunch      -20 g_nuts_mixed_planters
+      Income:Lunch       -1 g_honey
+    2016-10-27 Lunch Coffee
+      Assets:Fat
+      Income:Coffee      -6 g_sugar_turbinado
+      Income:Coffee      -2 g_cocoa
+      Income:Coffee    -304 g_coffee
+      Income:Coffee    -114 g_milk_twopct
+    2016-10-27 Dinner
+      Assets:Fat
+      Income:Dinner     -83 g_beef_bottom_round_roasted
+      Income:Dinner     -76 g_beans_green
+      Income:Dinner     -50 g_carrots_raw
+      Income:Dinner     -77 g_onions_sauteed
+      Income:Dinner    -145 g_potatoes_steamed
+      Income:Dinner     -21 g_lingonberries
+    2016-10-27 Dessert
+      Assets:Fat
+      Income:Dessert    -31 g_graham_crackers_honey
 
 Daily Report
 ------------
@@ -174,16 +174,16 @@ day.  More importantly, the balance will tell whether progress is
 being made overall.  It's okay to have bad days as long as the overall
 trend is in the right direction.
 
-   % ledger --value -f calories.ledger reg Assets --daily
-   16-Oct-27 - 16-Oct-27  Assets:Fat    -320.370 cal   -320.370 cal
-   16-Oct-28 - 16-Oct-28  Assets:Fat    -119.632 cal   -440.002 cal
-   16-Oct-29 - 16-Oct-29  Assets:Fat    -455.513 cal   -895.515 cal
-   16-Oct-30 - 16-Oct-30  <Adjustment>    -0.001 cal   -895.516 cal
-                          Assets:Fat    -449.450 cal  -1344.966 cal
-   16-Oct-31 - 16-Oct-31  Assets:Fat     197.896 cal  -1147.070 cal
-   16-Nov-01 - 16-Nov-01  <Adjustment>     0.001 cal  -1147.069 cal
-                          Assets:Fat     -34.909 cal  -1181.978 cal
-   16-Nov-02 - 16-Nov-02  Assets:Fat    -250.414 cal  -1432.392 cal
+    % ledger --value -f calories.ledger reg Assets --daily
+    16-Oct-27 - 16-Oct-27  Assets:Fat    -320.370 cal   -320.370 cal
+    16-Oct-28 - 16-Oct-28  Assets:Fat    -119.632 cal   -440.002 cal
+    16-Oct-29 - 16-Oct-29  Assets:Fat    -455.513 cal   -895.515 cal
+    16-Oct-30 - 16-Oct-30  <Adjustment>    -0.001 cal   -895.516 cal
+                           Assets:Fat    -449.450 cal  -1344.966 cal
+    16-Oct-31 - 16-Oct-31  Assets:Fat     197.896 cal  -1147.070 cal
+    16-Nov-01 - 16-Nov-01  <Adjustment>     0.001 cal  -1147.069 cal
+                           Assets:Fat     -34.909 cal  -1181.978 cal
+    16-Nov-02 - 16-Nov-02  Assets:Fat    -250.414 cal  -1432.392 cal
 
 Motivation
 ----------
