@@ -71,12 +71,12 @@ Losing Weight is Like Saving Money in Reverse
 I'm told losing weight is easy.  All I have to do is burn more
 calories than I consume.
 
-   my net calories += what I ingest - what I expend
+    my net calories += what I ingest - what I expend
 
 I'm told saving money is easy.  All I have to do is spend less money
 than I earn.
 
-   my net cash += what I earn - what I spend
+    my net cash += what I earn - what I spend
 
 The goals are opposite, but the processes are nearly identical.
 
@@ -108,13 +108,13 @@ The ledger consists of three kinds of entry:
     include food.prices
     include exercise.prices
 
-1. Basal metabolism transactions.  These account for being alive.  They contain two postings: One line to calculate your basal burn from your weight, and another line to offset that burn from "Assets:Fat".
+2. Basal metabolism transactions.  These account for being alive.  They contain two postings: One line to calculate your basal burn from your weight, and another line to offset that burn from "Assets:Fat".
 
     2016-10-27 Sedentary Metabolism
       Assets:Fat
       Espenses:Basal:Weight  190.000 lb_basal_weight
 
-2. Exercise transactions.  These track events that burn extra calories.  The "exercise.prices" database converts units of exercise into calories burned, and the "Assets:Fat" offset is calculated to match.
+3. Exercise transactions.  These track events that burn extra calories.  The "exercise.prices" database converts units of exercise into calories burned, and the "Assets:Fat" offset is calculated to match.
 
     2016-10-30 Sedentary Metabolism
       Assets:Fat
@@ -129,7 +129,7 @@ Exercise transactions are optional.  Exercise can be added to the basal metaboli
       Espenses:Housecleaning   30     min_vacuuming
       Espenses:Housecleaning   60     min_housecleaning_light
 
-3. Meal transactions.  The food.prices database converts food measurements into calories, and the "Assets:Fat" offset is calculated to match.
+4. Meal transactions.  The food.prices database converts food measurements into calories, and the "Assets:Fat" offset is calculated to match.
 
     2016-10-27 Breakfast
       Assets:Fat
