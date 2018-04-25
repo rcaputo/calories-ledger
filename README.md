@@ -29,8 +29,10 @@ Benefits of Using a Ledger
 
 This ledger tracks foods and exercises per unit.  Some examples:
 
+```
     P 2000-01-01 12:00:00 g_beans_black   1.320 cal
     P 2000-01-01 12:00:00 floz_wine_red  25.000 cal
+```
 
 Black beans are 1.320 calories per gram.  Red wine is 25 calories per
 fluid ounce.
@@ -71,12 +73,16 @@ Losing Weight is Like Saving Money in Reverse
 I'm told losing weight is easy.  All I have to do is burn more
 calories than I consume.
 
+```
     my net calories += what I ingest - what I expend
+```
 
 I'm told saving money is easy.  All I have to do is spend less money
 than I earn.
 
+```
     my net cash += what I earn - what I spend
+```
 
 The goals are opposite, but the processes are nearly identical.
 
@@ -104,22 +110,28 @@ The ledger consists of three kinds of entry:
 
 1. Includes.  These pull in the various databases.
 
+```
     include basal.prices
     include food.prices
     include exercise.prices
+```
 
 2. Basal metabolism transactions.  These account for being alive.  They contain two postings: One line to calculate your basal burn from your weight, and another line to offset that burn from "Assets:Fat".
 
+```
     2016-10-27 Sedentary Metabolism
       Assets:Fat
       Espenses:Basal:Weight  190.000 lb_basal_weight
+```
 
 3. Exercise transactions.  These track events that burn extra calories.  The "exercise.prices" database converts units of exercise into calories burned, and the "Assets:Fat" offset is calculated to match.
 
+```
     2016-10-27 Housecleaning
       Assets:Fat
       Espenses:Housecleaning   30 min_vacuuming
       Espenses:Housecleaning   60 min_housecleaning_light
+```
 
 4. Meal transactions.  The food.prices database converts food measurements into calories, and the "Assets:Fat" offset is calculated to match.
 
@@ -168,6 +180,7 @@ day.  More importantly, the balance will tell whether progress is
 being made overall.  It's okay to have bad days as long as the overall
 trend is in the right direction.
 
+```
     % ledger --value -f calories.ledger reg Assets --daily
     16-Oct-27 - 16-Oct-27  Assets:Fat    -320.370 cal   -320.370 cal
     16-Oct-28 - 16-Oct-28  Assets:Fat    -119.632 cal   -440.002 cal
@@ -178,6 +191,7 @@ trend is in the right direction.
     16-Nov-01 - 16-Nov-01  <Adjustment>     0.001 cal  -1147.069 cal
                            Assets:Fat     -34.909 cal  -1181.978 cal
     16-Nov-02 - 16-Nov-02  Assets:Fat    -250.414 cal  -1432.392 cal
+```
 
 Motivation
 ----------
